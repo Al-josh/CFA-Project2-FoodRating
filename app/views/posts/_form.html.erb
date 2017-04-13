@@ -1,0 +1,81 @@
+
+<%= form_for @post, html: {multipart: true} do |f| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="field">
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="field">
+      <%= f.label :cuisine %>
+      <%= f.text_field :cuisine %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="field">
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="field">
+      <%= f.label :ingredients %>
+      <%= f.text_area :ingredients %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="field">
+      <%= f.check_box :vegetarian %>
+      <%= f.label :vegetarian %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="field">
+      <%= f.check_box :vegan %>
+      <%= f.label :vegan %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="field">
+      <%= f.check_box :gluten_free %>
+      <%= f.label :gluten_free %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="field">
+      <%= f.check_box :takeaway %>
+      <%= f.label :takeaway %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="field">
+      <%= f.label :image %>
+      <%= f.file_field :image %>
+    </div>
+
+  </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>

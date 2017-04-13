@@ -1,0 +1,22 @@
+<div class="container">
+  <h1><%=@user.first_name %> <%= @user.last_name %></h1>
+  <div class="row">
+    <% @user_posts.each do |post| %>
+    <div class="col s5 m4">
+      <div class="card">
+        <div class="card-image">
+          <%= image_tag post.image.url(:large) %>
+          <span class="card-title">
+          </span>
+        </div>
+        <div class="card-content">
+          <%= truncate(post.description, :length => 80) %>
+          </div>
+          <div class="card-action">
+            <%= link_to post.title, post_path(post) %>
+          </div>
+        </div>
+      </div>
+      <% end %>
+  </div>
+</div>

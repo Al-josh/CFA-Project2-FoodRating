@@ -1,0 +1,58 @@
+<div class="container">
+
+  <p id="notice"><%= notice %></p>
+
+  <div class="frame">
+    <%= image_tag @post.image.url(:large) %>
+  </div>
+
+  <p>
+    <strong>Title:</strong>
+    <%= @post.title %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= @post.description %>
+  </p>
+
+  <p>
+    <strong>Ingredients:</strong>
+    <%= @post.ingredients %>
+  </p>
+
+  <p>
+    <strong>User:</strong>
+    <%= @post.user.email %>
+  </p>
+
+  <p>
+    <strong>Vegetarian:</strong>
+    <%= yes_no(@post.vegetarian) %>
+  </p>
+
+  <p>
+    <strong>Vegan:</strong>
+    <%= yes_no(@post.vegan) %>
+  </p>
+
+  <p>
+    <strong>Cuisine:</strong>
+    <%= @post.cuisine %>
+  </p>
+
+  <p>
+    <strong>Gluten free:</strong>
+    <%= yes_no(@post.gluten_free) %>
+  </p>
+
+  <p>
+    <strong>Takeaway:</strong>
+    <%= yes_no(@post.takeaway) %>
+  </p>
+
+
+  <%= link_to 'Edit', edit_post_path(@post) if @post.user == current_user %> |
+  <%= link_to 'Back', posts_path %>
+
+  </div>
