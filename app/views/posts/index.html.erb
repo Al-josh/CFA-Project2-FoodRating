@@ -31,8 +31,8 @@
           <td><%= yes_no(post.takeaway) %></td>
           <td><%= image_tag post.image.url(:thumb) %></td>
           <td><%= link_to 'Show', post %></td>
-          <td><%= link_to 'Edit', edit_post_path(post) if post.user == current_user %></td>
-          <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } if post.user == current_user%></td>
+          <td><%= link_to 'Edit', edit_post_path(post) if post.user == current_user || current_user.admin? %></td>
+          <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } if post.user == current_user || current_user.admin?%></td>
         </tr>
       <% end %>
     </tbody>

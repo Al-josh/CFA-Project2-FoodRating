@@ -52,7 +52,7 @@
   </p>
 
 
-  <%= link_to 'Edit', edit_post_path(@post) if @post.user == current_user %> |
+  <%= link_to 'Edit', edit_post_path(@post) if @post.user == current_user || current_user.admin? %> |
   <%= link_to 'Back', posts_path %>
 
   </div>
