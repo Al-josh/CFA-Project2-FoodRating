@@ -36,6 +36,7 @@ gem 'materialize-sass'
 gem 'paperclip', '~> 5.0.0'
 gem 'rolify'
 gem 'pundit'
+gem 'omniauth-facebook'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

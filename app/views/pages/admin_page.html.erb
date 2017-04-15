@@ -1,0 +1,29 @@
+<div class="container">
+
+<h1>Admin Page</h1>
+
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Birthday</th>
+        <th>Post Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |u| %>
+      <tr>
+        <td><%= u.first_name %> <%= u.last_name %> </td>
+        <td><%= u.email %> </td>
+        <td><%= u.birthday %> </td>
+        <td><%= u.posts.count %> </td>
+
+      </tr>
+    </tbody>
+    <% end %>
+  </table>
+
+
+</div>

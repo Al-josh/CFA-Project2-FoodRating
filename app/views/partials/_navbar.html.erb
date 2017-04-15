@@ -3,15 +3,17 @@
     <a href="/" class="brand-logo center">foood</a>
     <ul id="nav-mobile" class="left hide-on-med-and-down">
       <li><a href="/">Home</a></li>
-      <li><a href="badges.html">Components</a></li>
+      <% if user_signed_in? %>
+      <li><a href="/admin_page">Admin Page</a></li>
+      <li><%= link_to admin_page_url do %>Admin Page<% end %></li>
       <li><%= link_to current_user do %>My Profile<% end %></li>
+      <% end %>
     </ul>
     <ul class="right hide-on-med-and-down">
       <% if user_signed_in? %>
       <li>
         <%= link_to "New Post", new_post_path, class:"button", type: "button" %>
       </li>
-      <% else %>
       <% end %>
       <% if user_signed_in? %>
       <li>
@@ -23,6 +25,9 @@
       <% else %>
       <li>
         <%= link_to('Login', new_user_session_path)  %>
+      </li>
+      <li>
+        <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
       </li>
       <li>
         <%= link_to('Register', new_user_registration_path)  %>

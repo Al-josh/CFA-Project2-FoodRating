@@ -11,4 +11,9 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update) {|u| u.permit(:first_name, :last_name, :birthday, :email, :password, :current_password, :remember_me)}
 
   end
+
+  def authorize_admin
+    redirect_to "/", status: 401 unless current_user.admin?
+    #redirects to previous page
+  end
 end
