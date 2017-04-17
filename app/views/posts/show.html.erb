@@ -1,58 +1,77 @@
 <div class="container">
 
   <p id="notice"><%= notice %></p>
+  <div class="row">
+    <div class="col s6 blurred-back">
 
-  <div class="frame">
-    <%= image_tag @post.image.url(:large) %>
+      <%= image_tag @post.image.url(:large) %>
+
+
+      <p>
+        <strong>Healthiness:</strong>
+        <%= rating_for @post, 'healthy', enable_half: true %>
+      </p>
+
+
+      <p>
+        <strong>Title:</strong>
+        <%= @post.title %>
+      </p>
+
+      <p>
+        <strong>Description:</strong>
+        <%= @post.description %>
+      </p>
+
+      <p>
+        <strong>Ingredients:</strong>
+        <%= @post.ingredients %>
+      </p>
+
+      <p>
+        <strong>User:</strong>
+        <%= @post.user.email %>
+      </p>
+
+      <p>
+        <strong>Vegetarian:</strong>
+        <%= yes_no(@post.vegetarian) %>
+      </p>
+
+      <p>
+        <strong>Vegan:</strong>
+        <%= yes_no(@post.vegan) %>
+      </p>
+
+      <p>
+        <strong>Cuisine:</strong>
+        <%= @post.cuisine %>
+      </p>
+
+      <p>
+        <strong>Gluten free:</strong>
+        <%= yes_no(@post.gluten_free) %>
+      </p>
+
+      <p>
+        <strong>Takeaway:</strong>
+        <%= yes_no(@post.takeaway) %>
+      </p>
+      <%= link_to 'Write a Review', new_post_review_path(@post) %>
+
+      <%= link_to 'Edit', edit_post_path(@post) if @post.user == current_user || current_user.admin? %> |
+      <%= link_to 'Back', posts_path %>
+    </div>
+    <div class="col s6">
+      <% if @reviews.blank? %>
+        <h2> No Reviews Yet, leave a comment now:</h2>
+        <%= link_to 'Write a Review', new_post_review_path(@post) %>
+      <% else %>
+        <% @reviews.each do |review| %>
+          <p> <%= review.rating %></p>
+          <p> <%= review.comment %></p>
+        <% end %>
+      <% end %>
+    </div>
   </div>
-
-  <p>
-    <strong>Title:</strong>
-    <%= @post.title %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= @post.description %>
-  </p>
-
-  <p>
-    <strong>Ingredients:</strong>
-    <%= @post.ingredients %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= @post.user.email %>
-  </p>
-
-  <p>
-    <strong>Vegetarian:</strong>
-    <%= yes_no(@post.vegetarian) %>
-  </p>
-
-  <p>
-    <strong>Vegan:</strong>
-    <%= yes_no(@post.vegan) %>
-  </p>
-
-  <p>
-    <strong>Cuisine:</strong>
-    <%= @post.cuisine %>
-  </p>
-
-  <p>
-    <strong>Gluten free:</strong>
-    <%= yes_no(@post.gluten_free) %>
-  </p>
-
-  <p>
-    <strong>Takeaway:</strong>
-    <%= yes_no(@post.takeaway) %>
-  </p>
-
-
-  <%= link_to 'Edit', edit_post_path(@post) if @post.user == current_user || current_user.admin? %> |
-  <%= link_to 'Back', posts_path %>
-
-  </div>
+</div>

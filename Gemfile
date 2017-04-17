@@ -37,6 +37,7 @@ gem 'paperclip', '~> 5.0.0'
 gem 'rolify'
 gem 'pundit'
 gem 'omniauth-facebook'
+gem 'ratyrate'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

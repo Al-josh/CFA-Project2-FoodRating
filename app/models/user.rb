@@ -5,8 +5,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
   has_many :posts
+  has_many :reviews, dependent: :destroy
 
   after_create :assign_default_role
+  ratyrate_rater
 
   # before_save :capitalize_names
 
