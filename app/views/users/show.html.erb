@@ -1,5 +1,11 @@
 <div class="container">
-  <h1><%=@user.first_name %> <%= @user.last_name %></h1>
+
+  <div class="avatar-card">
+    <%= image_tag @user.avatar.url(:medium) %>
+    <h3><%=@user.first_name %> <%= @user.last_name %></h3>
+    <p>Birthday: <%= @user.birthday.strftime("%d/%m/%Y") %></p>
+  </div>
+
   <div class="row">
     <% @user_posts.each do |post| %>
     <div class="col s5 m4">
