@@ -8,4 +8,9 @@ class PagesController < ApplicationController
     @users = User.all
   end
 
+  def home
+    @users = User.all
+  end
+
+
 end
