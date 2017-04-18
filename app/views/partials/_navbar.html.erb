@@ -4,8 +4,7 @@
     <ul id="nav-mobile" class="left hide-on-med-and-down">
       <li><a href="/">Home</a></li>
       <% if user_signed_in? %>
-      <li><a href="/admin_page">Admin Page</a></li>
-      <li><%= link_to admin_page_url do %>Admin Page<% end %></li>
+      <li><%= link_to 'Admin Page', admin_page_url if current_user.admin? %>
       <li><%= link_to current_user do %>My Profile<% end %></li>
       <% end %>
     </ul>
