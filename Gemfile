@@ -38,6 +38,7 @@ gem 'rolify'
 gem 'pundit'
 gem 'omniauth-facebook'
 gem 'ratyrate'
+gem 'friendly_id'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

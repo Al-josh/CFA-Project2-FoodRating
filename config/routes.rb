@@ -8,8 +8,8 @@ Rails.application.routes.draw do
 
   resources :posts do
     resources :reviews, except: [:show, :index]
-
   end
+
   root 'pages#home'
   get 'admin_page', to: 'pages#admin_page'
 

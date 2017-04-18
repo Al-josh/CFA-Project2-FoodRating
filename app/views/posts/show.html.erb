@@ -6,12 +6,10 @@
 
       <%= image_tag @post.image.url(:large) %>
 
-
       <p>
         <strong>Healthiness:</strong>
         <%= rating_for @post, 'healthy', enable_half: true %>
       </p>
-
 
       <p>
         <strong>Title:</strong>
@@ -57,21 +55,26 @@
         <strong>Takeaway:</strong>
         <%= yes_no(@post.takeaway) %>
       </p>
+
       <%= link_to 'Write a Review', new_post_review_path(@post) %>
 
       <%= link_to 'Edit', edit_post_path(@post) if @post.user == current_user || current_user.admin? %> |
       <%= link_to 'Back', posts_path %>
     </div>
-    <div class="col s6">
+    <div class="col s6 blurred-back">
+
+      <%= render 'reviews/form', review: @review, post: @post %>
+
       <% if @reviews.blank? %>
         <h2> No Reviews Yet, leave a comment now:</h2>
         <%= link_to 'Write a Review', new_post_review_path(@post) %>
       <% else %>
         <% @reviews.each do |review| %>
-          <p> <%= review.rating %></p>
+          <p><%= review.user.first_name %> <%= review.user.last_name %></p>
           <p> <%= review.comment %></p>
         <% end %>
       <% end %>
+
     </div>
   </div>
 </div>

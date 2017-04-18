@@ -72,7 +72,7 @@ class ReviewsController < ApplicationController
     end
 
     def set_post
-      @post = Post.find(params[:post_id])
+      @post = Post.friendly.find(params[:post_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
