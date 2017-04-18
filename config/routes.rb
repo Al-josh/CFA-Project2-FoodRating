@@ -10,6 +10,10 @@ Rails.application.routes.draw do
     resources :reviews, except: [:show, :index]
   end
 
+  resources :conversations do
+    resources :messages
+  end
+
   root 'pages#home'
   get 'admin_page', to: 'pages#admin_page'
 

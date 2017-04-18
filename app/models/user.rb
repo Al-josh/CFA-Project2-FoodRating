@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
   has_many :posts
   has_many :reviews, dependent: :destroy
+  has_many :conversations, :foreign_key => :sender_id
 
   has_attached_file :avatar, styles: { medium: "250x250#", thumb: "100x100#" }
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
