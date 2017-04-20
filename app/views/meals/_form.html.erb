@@ -1,0 +1,57 @@
+<%= form_for(meal) do |f| %>
+  <% if meal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(meal.errors.count, "error") %> prohibited this meal from being saved:</h2>
+
+      <ul>
+      <% meal.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ingredients %>
+    <%= f.text_area :ingredients %>
+  </div>
+
+  <div class="field">
+    <%= f.label :vegetarian %>
+    <%= f.check_box :vegetarian %>
+  </div>
+
+  <div class="field">
+    <%= f.label :vegan %>
+    <%= f.check_box :vegan %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cuisine %>
+    <%= f.text_field :cuisine %>
+  </div>
+
+  <div class="field">
+    <%= f.label :gluten_free %>
+    <%= f.check_box :gluten_free %>
+  </div>
+
+  <div class="field">
+    <%= f.label :takeaway %>
+    <%= f.check_box :takeaway %>
+  </div>
+
+  <div class="field">
+    <%= f.label :restaurant_id %>
+    <%= f.text_field :restaurant_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

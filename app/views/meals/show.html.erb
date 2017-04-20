@@ -1,0 +1,51 @@
+<div class="container">
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @meal.title %>
+</p>
+
+<p>
+  <strong>Ingredients:</strong>
+  <%= @meal.ingredients %>
+</p>
+
+<p>
+  <strong>Vegetarian:</strong>
+  <%= @meal.vegetarian %>
+</p>
+
+<p>
+  <strong>Vegan:</strong>
+  <%= @meal.vegan %>
+</p>
+
+<p>
+  <strong>Cuisine:</strong>
+  <%= @meal.cuisine %>
+</p>
+
+<p>
+  <strong>Gluten free:</strong>
+  <%= @meal.gluten_free %>
+</p>
+
+<p>
+  <strong>Takeaway:</strong>
+  <%= @meal.takeaway %>
+</p>
+
+<p>
+  <strong>Restaurant:</strong>
+  <%= @meal.restaurant %>
+</p>
+
+<% if @meal.restaurant.user_id == current_user.id || current_user.admin? %>
+  <%= link_to 'Edit', edit_meal_path(@meal) %>
+<% end %>
+
+<%= link_to 'Back', restaurant_path(@meal.restaurant) %>
+
+</div>
