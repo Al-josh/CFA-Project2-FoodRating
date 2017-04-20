@@ -1,5 +1,7 @@
 <div class="container">
 
+<div class="row">
+<div class="col s6">
 
 <p id="notice"><%= notice %></p>
 
@@ -29,9 +31,14 @@
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) if @restaurant.user == current_user || current_user.admin? %> |
 <%= link_to 'Back', restaurants_path %>
 
+</div>
+
+</div>
+<div class="row">
 
 
 <p id="notice"><%= notice %></p>
+
 
 <h1>Meals</h1>
 
@@ -75,6 +82,7 @@
 <br>
 
 <%= link_to 'New Meal', new_restaurant_meal_path(@restaurant) %>
+</div>
 
 
 </div>

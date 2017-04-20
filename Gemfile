@@ -39,6 +39,8 @@ gem 'pundit'
 gem 'omniauth-facebook'
 gem 'ratyrate'
 gem 'friendly_id'
+gem 'materialize-form'
+gem 'simple_form'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
