@@ -1,0 +1,39 @@
+
+<div class="row">
+
+<div class="col s6">
+
+
+  <% if flash[:notice] %>
+      <div class="notice"><%= flash[:notice] %></div>
+    <% elsif flash[:warning] %>
+      <div class="alert alert-danger"><%= flash[:warning] %></div>
+    <% else %>
+  <% end %>
+
+<h1>Contact Us</h1>
+
+  <%= simple_form_for :contact do |f| %>
+
+  <div class="input-field col m6">
+    <label for="email">Email</label>
+    <%= f.input_field :email %>
+  </div>
+
+  <div class="input-field col m6">
+    <label for="name">Name</label>
+    <%= f.input_field :name %>
+  </div>
+
+
+  <div class="input-field col m12">
+    <label for="text">Text</label>
+    <%= f.input_field :message, :as => :text %>
+  </div>
+
+
+    <%= f.button :submit, "Send", class: "waves-effect waves-light btn" %>
+<% end %>
+
+</div>
+</div>

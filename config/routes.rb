@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
 
   resources :restaurants do
-#    member do
       resources :meals do
           resources :comments
       end
-#    end
   end
 
   post '/rate' => 'rater#create', :as => 'rate'
@@ -25,6 +23,8 @@ Rails.application.routes.draw do
 
   root 'pages#home'
   get 'admin_page', to: 'pages#admin_page'
+  get 'contact', to: "contact#index"
+  post 'contact', to: "contact#mail"
 
 
   # devise_for :users
