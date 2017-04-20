@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
 
   resources :restaurants do
-    member do
-      resources :meals
-    end
+#    member do
+      resources :meals do
+          resources :comments
+      end
+#    end
   end
-  
+
   post '/rate' => 'rater#create', :as => 'rate'
   get 'pages/admin_page'
 

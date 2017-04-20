@@ -1,3 +1,6 @@
+<div class="container">
+
+
 <p id="notice"><%= notice %></p>
 
 <img src="https://maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=600x300&maptype=roadmap&markers=color:red%7Clabel:C%7C40.718217,-73.998284&key=" alt="">
@@ -7,6 +10,7 @@
 <table>
   <thead>
     <tr>
+      <th>Image</th>
       <th>Name</th>
       <th>Address</th>
       <th>Telephone</th>
@@ -18,10 +22,11 @@
   <tbody>
     <% @restaurants.each do |restaurant| %>
       <tr>
+        <td><%= image_tag restaurant.image.url(:thumb) %></td>
         <td><%= restaurant.name %></td>
         <td><%= restaurant.address %></td>
         <td><%= restaurant.telephone %></td>
-        <td><%= restaurant.user %></td>
+        <td><%= restaurant.user.first_name %> <%= restaurant.user.last_name %></td>
         <td><%= link_to 'Show', restaurant %></td>
         <td><%= link_to 'Edit', edit_restaurant_path(restaurant) if restaurant.user == current_user || current_user.admin? %></td>
         <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } if restaurant.user == current_user || current_user.admin? %></td>
@@ -33,3 +38,5 @@
 <br>
 
 <%= link_to 'New Restaurant', new_restaurant_path %>
+
+</div>

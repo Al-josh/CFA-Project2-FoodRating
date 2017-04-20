@@ -30,7 +30,7 @@
         <td><%= meal.cuisine %></td>
         <td><%= meal.gluten_free %></td>
         <td><%= meal.takeaway %></td>
-        <td><%= meal.restaurant %></td>
+        <td><%= meal.restaurant.name %></td>
         <td><%= link_to 'Show', meal_path %></td>
         <td><%= link_to 'Edit', edit_meal_path if restaurant.user == current_user || current_user.admin?%></td>
         <td><%= link_to 'Destroy', meal, method: :delete, data: { confirm: 'Are you sure?' } if restaurant.user == current_user || current_user.admin?%></td>

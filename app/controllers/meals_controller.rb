@@ -10,6 +10,8 @@ class MealsController < ApplicationController
   # GET /meals/1
   # GET /meals/1.json
   def show
+    @comments = Comment.where(meal_id: params[:meal_id])
+
   end
 
   # GET /meals/new
@@ -29,7 +31,7 @@ class MealsController < ApplicationController
 
     respond_to do |format|
       if @meal.save
-        format.html { redirect_to @meal, notice: 'Meal was successfully created.' }
+        format.html { redirect_to restaurant_meal_path(@meal.restaurant, @meal), notice: 'Meal was successfully created.' }
         format.json { render :show, status: :created, location: @meal }
       else
         format.html { render :new }
@@ -44,7 +46,7 @@ class MealsController < ApplicationController
     authorize @meal
     respond_to do |format|
       if @meal.update(meal_params)
-        format.html { redirect_to @meal, notice: 'Meal was successfully updated.' }
+        format.html { redirect_to restaurant_meal_path(@meal.restaurant, @meal), notice: 'Meal was successfully updated.' }
         format.json { render :show, status: :ok, location: @meal }
       else
         format.html { render :edit }
@@ -58,7 +60,7 @@ class MealsController < ApplicationController
   def destroy
     @meal.destroy
     respond_to do |format|
-      format.html { redirect_to meals_url, notice: 'Meal was successfully destroyed.' }
+      format.html { redirect_to restaurant_meals_url, notice: 'Meal was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -71,6 +73,6 @@ class MealsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def meal_params
-      params.require(:meal).permit(:title, :ingredients, :vegetarian, :vegan, :cuisine, :gluten_free, :takeaway, :restaurant_id)
+      params.require(:meal).permit(:title, :ingredients, :vegetarian, :vegan, :cuisine, :gluten_free, :takeaway, :restaurant_id, :image)
     end
 end

@@ -1,4 +1,10 @@
+<div class="container">
+
+
 <p id="notice"><%= notice %></p>
+
+<%= image_tag @restaurant.image.url(:large) %>
+
 
 <p>
   <strong>Name:</strong>
@@ -16,14 +22,13 @@
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @restaurant.user %>
+  <strong>Owner:</strong>
+  <%= @restaurant.user.first_name %> <%= @restaurant.user.last_name %>
 </p>
 
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) if @restaurant.user == current_user || current_user.admin? %> |
 <%= link_to 'Back', restaurants_path %>
 
-<div class="container">
 
 
 <p id="notice"><%= notice %></p>
@@ -33,11 +38,12 @@
 <table>
   <thead>
     <tr>
+      <th>Photo</th>
       <th>Title</th>
-      <th>Ingredients</th>
+      <th>Cuisine</th>
+      <th>Healthy</th>
       <th>Vegetarian</th>
       <th>Vegan</th>
-      <th>Cuisine</th>
       <th>Gluten free</th>
       <th>Takeaway</th>
       <th>Restaurant</th>
@@ -48,17 +54,19 @@
   <tbody>
     <% @meals.each do |meal| %>
       <tr>
+
+        <td><%= image_tag meal.image.url(:thumb) %></td>
         <td><%= meal.title %></td>
-        <td><%= meal.ingredients %></td>
+        <td><%= meal.cuisine %></td>
+        <td><%= rating_for meal, 'healthy', star: 5 %></td>
         <td><%= meal.vegetarian %></td>
         <td><%= meal.vegan %></td>
-        <td><%= meal.cuisine %></td>
         <td><%= meal.gluten_free %></td>
         <td><%= meal.takeaway %></td>
-        <td><%= meal.restaurant %></td>
-        <td><%= link_to 'Show', meal_path %></td>
-        <td><%= link_to 'Edit', edit_meal_path if @restaurant.user == current_user || current_user.admin? %></td>
-        <td><%= link_to 'Destroy', meal, method: :delete, data: { confirm: 'Are you sure?' } if @restaurant.user == current_user || current_user.admin? %></td>
+        <td><%= meal.restaurant.name %></td>
+        <td><%= link_to 'Show', restaurant_meal_path(meal.restaurant, meal) %></td>
+        <td><%= link_to 'Edit', edit_restaurant_meal_path(meal.restaurant, meal) if @restaurant.user == current_user || current_user.admin? %></td>
+        <td><%= link_to 'Destroy', restaurant_meal_path(meal.restaurant, meal), method: :delete, data: { confirm: 'Are you sure?' } if @restaurant.user == current_user || current_user.admin? %></td>
       </tr>
     <% end %>
   </tbody>
@@ -66,6 +74,7 @@
 
 <br>
 
-<%= link_to 'New Meal', new_meal_path %>
+<%= link_to 'New Meal', new_restaurant_meal_path(@restaurant) %>
+
 
 </div>
