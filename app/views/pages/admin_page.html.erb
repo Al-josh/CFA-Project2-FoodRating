@@ -1,29 +1,74 @@
-<div class="container">
-
 <h1>Admin Page</h1>
 
-
-  <table>
+<div class="row">
+  <div class="col s6">
+<h4>Restaurant Owners</h4>
+  <table class="centered stripped table-border">
     <thead>
       <tr>
         <th>Name</th>
         <th>Email</th>
         <th>Birthday</th>
-        <th>Post Count</th>
+        <th>Restaurants Owned</th>
+        <th>Message</th>
       </tr>
     </thead>
     <tbody>
-      <% @users.each do |u| %>
+      <% @users.each do |user| %>
+      <% if user.restaurants.count > 0 %>
       <tr>
-        <td><%= u.first_name %> <%= u.last_name %> </td>
-        <td><%= u.email %> </td>
-        <td><%= u.birthday %> </td>
-        <td><%= u.posts.count %> </td>
+        <td><%= link_to(user.first_name, user_path(user)) %> <%= link_to(user.last_name, user_path(user)) %> </td>
+        <td><%= user.email %> </td>
+        <td><%= user.birthday.strftime("%d/%m/%Y") %> </td>
+        <td><%= user.restaurants.count %> </td>
+        <td>
+          <%= link_to conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post' do%>
+            <i class="material-icons">email</i>
+            <% end %>
+        </tr>
 
+</td>
+<% end %>
       </tr>
     </tbody>
     <% end %>
   </table>
+</div>
 
+<div class="col s6">
+  <h4>Restaurant Goers</h4>
+
+<table class="centered stripped table-border">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Birthday</th>
+      <th>Post Count</th>
+      <th>Comments Count</th>
+      <th>Message</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <% if user.restaurants.count == 0 %>
+        <tr>
+          <td><%= link_to(user.first_name, user_path(user)) %> <%= link_to(user.last_name, user_path(user)) %> </td>
+          <td><%= user.email %> </td>
+          <td><%= user.birthday.strftime("%d/%m/%Y") %> </td>
+          <td><%= user.posts.count %> </td>
+          <td><%= user.comments.count %> </td>
+          <td>
+            <%= link_to conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post' do%>
+              <i class="material-icons">email</i>
+              <% end %>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+</div>
 
 </div>

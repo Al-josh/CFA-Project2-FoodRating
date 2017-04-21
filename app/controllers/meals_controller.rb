@@ -5,6 +5,8 @@ class MealsController < ApplicationController
   # GET /meals.json
   def index
     @meals = Meal.all
+    @restaurant = Restaurant.find(params[:restaurant_id])
+
   end
 
   # GET /meals/1
@@ -22,17 +24,19 @@ class MealsController < ApplicationController
 
   # GET /meals/1/edit
   def edit
+    @restaurant = Restaurant.find(params[:restaurant_id])
   end
 
   # POST /meals
   # POST /meals.json
   def create
     @meal = Meal.new(meal_params)
-    @meal.restaurant_id = params[:id]
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @meal.restaurant_id = @restaurant.id
 
     respond_to do |format|
       if @meal.save
-        format.html { redirect_to restaurant_meal_path(@meal.restaurant, @meal), notice: 'Meal was successfully created.' }
+        format.html { redirect_to restaurant_meal_path(@restaurant, @meal), notice: 'Meal was successfully created.' }
         format.json { render :show, status: :created, location: @meal }
       else
         format.html { render :new }
@@ -45,9 +49,11 @@ class MealsController < ApplicationController
   # PATCH/PUT /meals/1.json
   def update
     authorize @meal
+    @restaurant = Restaurant.find(params[:restaurant_id])
+
     respond_to do |format|
       if @meal.update(meal_params)
-        format.html { redirect_to restaurant_meal_path(@meal.restaurant, @meal), notice: 'Meal was successfully updated.' }
+        format.html { redirect_to restaurant_meal_path(@restaurant, @meal), notice: 'Meal was successfully updated.' }
         format.json { render :show, status: :ok, location: @meal }
       else
         format.html { render :edit }

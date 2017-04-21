@@ -4,7 +4,8 @@ class RestaurantsController < ApplicationController
   # GET /restaurants
   # GET /restaurants.json
   def index
-    @restaurants = Restaurant.all
+    @search = Restaurant.search(params[:q])
+    @restaurants = @search.result
   end
 
   # GET /restaurants/1
@@ -12,6 +13,7 @@ class RestaurantsController < ApplicationController
   def show
     @meals = Meal.where(restaurant_id: params[:id])
     @address = @restaurant.address
+
   end
 
   # GET /restaurants/new
