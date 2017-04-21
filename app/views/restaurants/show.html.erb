@@ -1,12 +1,10 @@
   <div class="container">
-
     <div class="row">
       <div class="col s6">
 
-        <p id="notice"><%= notice %></p>
-
         <%= image_tag @restaurant.image.url(:large) %>
 
+        <p id="notice"><%= notice %></p>
 
         <p>
           <strong>Name:</strong>
@@ -16,8 +14,6 @@
         <p>
           <strong>Address:</strong>
           <%= @restaurant.address %>
-          <%= @restaurant.longitude %>
-          <%= @restaurant.latitude %>
 
         </p>
 
@@ -36,58 +32,46 @@
 
       </div>
       <div class="col s6">
-        <img src="https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=600x300&maptype=roadmap&markers=color:red%7Clabel:%7C<%= @restaurant.latitude %>,<%= @restaurant.longitude %>&key=<%= ENV['GOOGLE_API'] %>">
+        <img src="https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=400x400&maptype=roadmap&markers=color:red%7Clabel:%7C<%= @restaurant.latitude %>,<%= @restaurant.longitude %>&key=<%= ENV['GOOGLE_API'] %>">
       </div>
     </div>
-<div class="row">
 
-
-<p id="notice"><%= notice %></p>
-
-
-<h1>Meals</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Photo</th>
-      <th>Title</th>
-      <th>Cuisine</th>
-      <th>Healthy</th>
-      <th>Vegetarian</th>
-      <th>Vegan</th>
-      <th>Gluten free</th>
-      <th>Takeaway</th>
-      <th>Restaurant</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @meals.each do |meal| %>
-      <tr>
-
-        <td><%= image_tag meal.image.url(:thumb) %></td>
-        <td><%= meal.title %></td>
-        <td><%= meal.cuisine %></td>
-        <td><%= rating_for meal, 'healthy', star: 5 %></td>
-        <td><%= meal.vegetarian %></td>
-        <td><%= meal.vegan %></td>
-        <td><%= meal.gluten_free %></td>
-        <td><%= meal.takeaway %></td>
-        <td><%= meal.restaurant.name %></td>
-        <td><%= link_to 'Show', restaurant_meal_path(meal.restaurant, meal) %></td>
-        <td><%= link_to 'Edit', edit_restaurant_meal_path(meal.restaurant, meal) if @restaurant.user == current_user || current_user.admin? %></td>
-        <td><%= link_to 'Destroy', restaurant_meal_path(meal.restaurant, meal), method: :delete, data: { confirm: 'Are you sure?' } if @restaurant.user == current_user || current_user.admin? %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Meal', new_restaurant_meal_path(@restaurant) %>
-</div>
-
-
-</div>
+    <div class="row">
+      <p id="notice"><%= notice %></p>
+      <h1>Meals</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Photo</th>
+            <th>Title</th>
+            <th>Cuisine</th>
+            <th>Healthy</th>
+            <th>Vegetarian</th>
+            <th>Vegan</th>
+            <th>Gluten free</th>
+            <th>Takeaway</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @meals.each do |meal| %>
+          <tr>
+            <td><%= image_tag meal.image.url(:thumb) %></td>
+            <td><%= meal.title %></td>
+            <td><%= meal.cuisine %></td>
+            <td><%= rating_for meal, 'healthy', star: 5 %></td>
+            <td><%= yes_no(meal.vegetarian) %></td>
+            <td><%= yes_no(meal.vegan) %></td>
+            <td><%= yes_no(meal.gluten_free) %></td>
+            <td><%= yes_no(meal.takeaway) %></td>
+            <td><%= link_to 'Show', restaurant_meal_path(meal.restaurant, meal) %></td>
+            <td><%= link_to 'Edit', edit_restaurant_meal_path(meal.restaurant, meal) if @restaurant.user == current_user || current_user.admin? %></td>
+            <td><%= link_to 'Destroy', restaurant_meal_path(meal.restaurant, meal), method: :delete, data: { confirm: 'Are you sure?' } if @restaurant.user == current_user || current_user.admin? %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <br>
+      <%= link_to 'New Meal', new_restaurant_meal_path(@restaurant) %>
+    </div>
+  </div>

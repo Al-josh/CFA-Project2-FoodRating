@@ -9,7 +9,7 @@
 
 <p>
   <strong>Healtiness:</strong>
-  <%= rating_for @meal, 'healthy', star: 5 %> 
+  <%= rating_for @meal, 'healthy', star: 5 %>
 </p>
 
 
@@ -25,12 +25,12 @@
 
 <p>
   <strong>Vegetarian:</strong>
-  <%= @meal.vegetarian %>
+  <%= yes_no(@meal.vegetarian) %>
 </p>
 
 <p>
   <strong>Vegan:</strong>
-  <%= @meal.vegan %>
+  <%= yes_no(@meal.vegan) %>
 </p>
 
 <p>
@@ -40,17 +40,17 @@
 
 <p>
   <strong>Gluten free:</strong>
-  <%= @meal.gluten_free %>
+  <%= yes_no(@meal.gluten_free) %>
 </p>
 
 <p>
   <strong>Takeaway:</strong>
-  <%= @meal.takeaway %>
+  <%= yes_no(@meal.takeaway) %>
 </p>
 
 <p>
   <strong>Restaurant:</strong>
-  <%= @meal.restaurant %>
+  <%= @meal.restaurant.name %>
 </p>
 
 
