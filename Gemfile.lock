@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/alexreisner/geocoder.git
+  revision: 2ba20514440f8f67f3422f82b5866cb795fb7af2
+  specs:
+    geocoder (1.4.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -212,6 +218,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   friendly_id
+  geocoder!
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)

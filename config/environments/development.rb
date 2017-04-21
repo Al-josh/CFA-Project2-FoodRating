@@ -53,13 +53,12 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-    config.action_mailer.delivery_method = :smtp
-    config.action_mailer.smtp_settings = {
-      address:              "smtp.mailgun.org",
-      port:                 587,
-      domain:               ENV["MAILGUN_DOMAIN_URL"],
-      user_name:            ENV["MAILGUN_DEFAULT_SMTP"],
-      password:             ENV["MAILGUN_PASSWORD"],
-      authentication:       "plain" }
-
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              "smtp.mailgun.org",
+    port:                 587,
+    domain:               ENV["MAILGUN_DOMAIN_URL"],
+    user_name:            ENV["MAILGUN_DEFAULT_SMTP"],
+    password:             ENV["MAILGUN_PASSWORD"],
+    authentication:       "plain" }
 end

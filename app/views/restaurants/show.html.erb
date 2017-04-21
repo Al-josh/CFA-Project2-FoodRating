@@ -1,39 +1,44 @@
-<div class="container">
+  <div class="container">
 
-<div class="row">
-<div class="col s6">
+    <div class="row">
+      <div class="col s6">
 
-<p id="notice"><%= notice %></p>
+        <p id="notice"><%= notice %></p>
 
-<%= image_tag @restaurant.image.url(:large) %>
+        <%= image_tag @restaurant.image.url(:large) %>
 
 
-<p>
-  <strong>Name:</strong>
-  <%= @restaurant.name %>
-</p>
+        <p>
+          <strong>Name:</strong>
+          <%= @restaurant.name %>
+        </p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @restaurant.address %>
-</p>
+        <p>
+          <strong>Address:</strong>
+          <%= @restaurant.address %>
+          <%= @restaurant.longitude %>
+          <%= @restaurant.latitude %>
 
-<p>
-  <strong>Telephone:</strong>
-  <%= @restaurant.telephone %>
-</p>
+        </p>
 
-<p>
-  <strong>Owner:</strong>
-  <%= @restaurant.user.first_name %> <%= @restaurant.user.last_name %>
-</p>
+        <p>
+          <strong>Telephone:</strong>
+          <%= @restaurant.telephone %>
+        </p>
 
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) if @restaurant.user == current_user || current_user.admin? %> |
-<%= link_to 'Back', restaurants_path %>
+        <p>
+          <strong>Owner:</strong>
+          <%= @restaurant.user.first_name %> <%= @restaurant.user.last_name %>
+        </p>
 
-</div>
+        <%= link_to 'Edit', edit_restaurant_path(@restaurant) if @restaurant.user == current_user || current_user.admin? %> |
+        <%= link_to 'Back', restaurants_path %>
 
-</div>
+      </div>
+      <div class="col s6">
+        <img src="https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=600x300&maptype=roadmap&markers=color:red%7Clabel:%7C<%= @restaurant.latitude %>,<%= @restaurant.longitude %>&key=<%= ENV['GOOGLE_API'] %>">
+      </div>
+    </div>
 <div class="row">
 
 
