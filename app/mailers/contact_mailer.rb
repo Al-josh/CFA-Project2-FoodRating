@@ -1,8 +1,5 @@
 class ContactMailer < ApplicationMailer
-
-
   default from: 'aljosa@aljosa.com'
-
 
   def send_contact_email(email, message)
     @email = email
@@ -12,6 +9,4 @@ class ContactMailer < ApplicationMailer
       format.text { render 'send_contact_email' }
     end
   end
-
-
 end

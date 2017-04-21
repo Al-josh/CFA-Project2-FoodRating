@@ -11,6 +11,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/1.json
   def show
     @meals = Meal.where(restaurant_id: params[:id])
+    @address = @restaurant.address
   end
 
   # GET /restaurants/new
@@ -72,6 +73,6 @@ class RestaurantsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def restaurant_params
-      params.require(:restaurant).permit(:name, :address, :telephone, :user_id, :image)
+      params.require(:restaurant).permit(:name, :address, :telephone, :user_id, :image, :latitude, :longitude)
     end
 end
