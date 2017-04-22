@@ -1,44 +1,81 @@
   <div class="container">
-    <div class="row">
-      <div class="col s6">
+    <div class="restaurant-header">
+      <div class="row row-new">
+        <div class="col s6">
+          <div class="row center-align">
+          <%= image_tag @restaurant.image.url(:large) %>
+          <p id="notice"><%= notice %></p>
+          </div>
+          <div class="row">
+            <div class="col s3">
+              <strong>Name:</strong>
+            </div>
+            <div class="col s6">
+              <%= @restaurant.name %>
+            </div>
+          </div>
 
-        <%= image_tag @restaurant.image.url(:large) %>
-
-        <p id="notice"><%= notice %></p>
-
-        <p>
-          <strong>Name:</strong>
-          <%= @restaurant.name %>
-        </p>
-
-        <p>
-          <strong>Address:</strong>
-          <%= @restaurant.address %>
-
-        </p>
-
-        <p>
-          <strong>Telephone:</strong>
-          <%= @restaurant.telephone %>
-        </p>
-
-        <p>
-          <strong>Owner:</strong>
-          <%= @restaurant.user.first_name %> <%= @restaurant.user.last_name %>
-        </p>
-
-        <%= link_to 'Edit', edit_restaurant_path(@restaurant) if @restaurant.user == current_user || current_user.admin? %> |
-        <%= link_to 'Back', restaurants_path %>
-
-      </div>
-      <div class="col s6">
-        <img src="https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=400x400&maptype=roadmap&markers=color:red%7Clabel:%7C<%= @restaurant.latitude %>,<%= @restaurant.longitude %>&key=<%= ENV['GOOGLE_API'] %>">
+          <div class="row">
+            <div class="col s3">
+              <strong>Address:</strong>
+            </div>
+            <div class="col s6">
+              <%= @restaurant.address %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s3">
+              <strong>Telephone:</strong>
+            </div>
+            <div class="col s6">
+              <%= @restaurant.telephone %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s3">
+              <strong>Owner:</strong>
+            </div>
+            <div class="col s6">
+              <%= @restaurant.user.first_name %> <%= @restaurant.user.last_name %>
+            </div>
+          </div>
+          <%= link_to 'Edit', edit_restaurant_path(@restaurant) if @restaurant.user == current_user || current_user.admin? %> |
+          <%= link_to 'Back', restaurants_path %>
+        </div>
+        <div class="col s6">
+          <div class="row center-align">
+            <img src="https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=400x400&maptype=roadmap&markers=color:red%7Clabel:%7C<%= @restaurant.latitude %>,<%= @restaurant.longitude %>&key=<%= ENV['GOOGLE_API'] %>">
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="row">
+
       <p id="notice"><%= notice %></p>
       <h1>Meals</h1>
+
+
+      <div class="row">
+        <% @meals.each do |meal| %>
+        <div class="col s5 m3">
+          <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator">
+              <%= image_tag meal.image.url(:large) %>
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4"><%= truncate(meal.title, :length => 12) %><i class="material-icons right">more_vert</i></span>
+              <p><%= link_to 'Meal Details', restaurant_meal_path(meal.restaurant, meal) %></p>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4"><%= meal.title %><i class="material-icons right">close</i></span>
+              <%= rating_for meal, 'healthy', star: 5 %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+
       <table>
         <thead>
           <tr>
@@ -73,5 +110,5 @@
       </table>
       <br>
       <%= link_to 'New Meal', new_restaurant_meal_path(@restaurant) %>
-    </div>
+
   </div>
