@@ -10,5 +10,9 @@ class PagesController < ApplicationController
     @users = User.all
   end
 
+  def user_list
+    @users = User.all
+  end
+
 
 end

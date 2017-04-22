@@ -15,7 +15,6 @@
 //= require jquery.raty
 //= require ratyrate
 //= require materialize-form
-//= require turbolinks
 //= require materialize-sprockets
 //= require_tree .
 

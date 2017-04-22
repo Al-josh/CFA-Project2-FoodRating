@@ -1,0 +1,20 @@
+---
+:User:
+  :avatar:
+  - :medium
+  - :thumb
+:Meal:
+  :image:
+  - :large
+  - :medium
+  - :thumb
+:Post:
+  :image:
+  - :large
+  - :medium
+  - :thumb
+:Restaurant:
+  :image:
+  - :large
+  - :medium
+  - :thumb

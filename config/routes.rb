@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 
   root 'pages#home'
   get 'admin_page', to: 'pages#admin_page'
+  get 'user_list', to: 'pages#user_list'
   get 'contact', to: "contact#index"
   post 'contact', to: "contact#mail"
 
