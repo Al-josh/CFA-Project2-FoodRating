@@ -23,17 +23,40 @@
   background-color: green;
 }
 
+.background-image-signup {
+  background-image: url("background_1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.background-image-login {
+  background-image: url("background_3.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+
+}
+
 // .background-image {
 //   background: url(/random_background.jpg) no-repeat center center fixed;
 //   background-size: cover;
 // }
 
 .blurred-back {
-  background-color: rgba(255,0,0,0.1);
+  background-color: rgba(0,100,0,0.1);
   margin-top: 30px;
   border-radius: 10px;
   padding: 20px;
 }
+
+.blurred-back2 {
+  background-color: rgba(0,100,0,0.5);
+  margin-top: 30px;
+  border-radius: 10px;
+  padding: 20px;
+}
+
 
 .avatar-card {
   background-color: blue;
@@ -58,4 +81,18 @@
 
 .slider {
   margin-top: 100px;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.small-text {
+  font-size: 10px;
+}
+
+.btn-small {
+    height: 24px;
+    line-height: 24px;
+    padding: 0 0.5rem;
 }
