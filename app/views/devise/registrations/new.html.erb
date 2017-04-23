@@ -8,32 +8,32 @@
           <%= devise_error_messages! %>
 
           <div class="row no-margin">
-            <div class="input-field col s6 m6">
+            <div class="field col s6 m6">
               <%= f.label :first_name %>
               <%= f.text_field :first_name, autofocus: true %>
             </div>
-            <div class="input-field col s6 m6">
+            <div class="field col s6 m6">
               <%= f.label :last_name %>
               <%= f.text_field :last_name, autofocus: true %>
             </div>
           </div>
 
           <div class="row no-margin">
-            <div class="input-field">
+            <div class="field">
               <%= f.label :birthday %> <br />
               <%= f.date_field :birthday, autofocus: true %>
             </div>
           </div>
 
           <div class="row no-margin">
-            <div class="input-field">
+            <div class="field">
               <%= f.label :email %>
               <%= f.email_field :email, autofocus: true %>
             </div>
           </div>
 
           <div class="row no-margin">
-            <div class="input-field">
+            <div class="field">
               <div class="small-text">
                 <% if @minimum_password_length %>
                 <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -45,12 +45,12 @@
           </div>
 
           <div class="row no-margin">
-            <div class="input-field no-margin">
+            <div class="field no-margin">
               <%= f.label :password_confirmation %>
               <%= f.password_field :password_confirmation, autocomplete: "off" %>
             </div>
           </div>
-
+          <br />
           <div class="row no-margin center-align">
             <div class="actions waves-effect waves-light btn green darken-2">
               <%= f.submit "Sign up" %>
