@@ -1,13 +1,31 @@
 <div class="container">
 
-  <div class="avatar-card">
-    <%= image_tag @user.avatar.url(:medium) %>
-    <h3><%=@user.first_name %> <%= @user.last_name %></h3>
+<div class="row no-margin center-align">
+
+  <div class="col s12 m12 l4 avatar-card center-align green accent-1">
+    <div class="simple-box">
+
+    <div class="row center-align no-margin">
+
+    <div class="box1 green lighten-1 no-margin z-depth-5">
+      <div class="box green lighten-2">
+        <%= image_tag @user.avatar.url(:medium), class: "avatar-image" %>
+      </div>
+    </div>
+  </div>
+<div class="row">
+
+    <h3><%=@user.first_name.capitalize %> <%= @user.last_name.capitalize %></h3>
     <p>Birthday: <%= @user.birthday.strftime("%d/%m/%Y") %></p>
     <% if @user.id != current_user.id %>
    <%= link_to "Message me!", conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: 'post'%>
     <% end %>
   </div>
+</div>
+</div>
+
+</div>
+
 
   <div class="row">
     <% @user_posts.each do |post| %>

@@ -16,13 +16,6 @@
 @import "materialize";
 @import url('https://fonts.googleapis.com/css?family=Jomhuria');
 
-
-.frame {
-  width: 640px;
-  padding: 20px;
-  background-color: green;
-}
-
 .background-image-signup {
   background-image: url("background_1.jpg");
   background-repeat: no-repeat;
@@ -38,13 +31,8 @@
 
 }
 
-// .background-image {
-//   background: url(/random_background.jpg) no-repeat center center fixed;
-//   background-size: cover;
-// }
-
 .blurred-back {
-  background-color: rgba(0,100,0,0.1);
+  background-color: rgba(0,100,0,0.2);
   margin-top: 30px;
   border-radius: 10px;
   padding: 20px;
@@ -57,11 +45,11 @@
   padding: 20px;
 }
 
-
 .avatar-card {
-  background-color: blue;
   margin: 30px 0px;
-  padding: 20px;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 0 20px rgba(0,100,0,0.5)
 }
 
 .table-border {
@@ -88,11 +76,39 @@
 }
 
 .small-text {
-  font-size: 10px;
+  font-size: 13px;
 }
 
 .btn-small {
     height: 24px;
     line-height: 24px;
     padding: 0 0.5rem;
+}
+
+input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea {
+    margin: 0;
+}
+
+.avatar-image {
+  border-radius: 100%;
+  box-shadow: 0 0 20px rgba(0,100,0,0.5)
+}
+
+.box {
+  width: 282px;
+  height: 282px;
+  padding: 15px;
+  border-radius: 100%;
+  box-shadow: 0 0 20px rgba(0,100,0,0.5)
+}
+
+.box1 {
+  width: 312px;
+  height: 312px;
+  padding: 15px;
+  border-radius: 100%;
+}
+
+.simple-box {
+  padding-top: 15px;
 }
