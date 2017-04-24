@@ -9,7 +9,7 @@
 
 <nav>
   <div class="nav-wrapper green darken-2">
-    <a href="/" class="brand-logo center home-text">Foodocracy</a>
+    <a href="/" class="brand-logo center home-text"><span style="font-size: 3rem !important;">Foodocracy</span></a>
     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
     <ul id="nav-mobile" class="left hide-on-med-and-down">
       <li><a href="/">Home</a></li>
@@ -23,7 +23,7 @@
       <li> <%= link_to "New Post", new_post_path, class:"button", type: "button" %> </li>
       <li> <%= link_to "Restaurants", restaurants_path, class:"button", type: "button" %> </li>
       <% end %>
-      <li><a href="/contact">Contact</a></li>
+      <li><a href="/contact">About Us</a></li>
       <% if user_signed_in? %>
       <li> <%= link_to('Logout', destroy_user_session_path, :method => :delete) %> </li>
       <% else %>

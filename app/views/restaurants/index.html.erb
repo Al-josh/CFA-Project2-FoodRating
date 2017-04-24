@@ -4,31 +4,31 @@
 <p id="notice"><%= notice %></p>
 
 
-  <h1>Restaurants</h1>
+  <h4 class="center-align">Restaurants</h4>
 
   <div class="row">
     <div class="col s6">
       <%= search_form_for @search do |f| %>
-      <div class="field">
+      <div class="field center-align">
         <%= f.label :name_cont %>
         <%= f.text_field :name_cont %>
       </div>
     </div>
     <div class="col s6">
-      <div class="field">
+      <div class="field center-align">
         <%= f.label :address_cont %>
         <%= f.text_field :address_cont %>
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="actions">
+  <div class="row center-align">
+    <div class="actions waves-effect waves-light btn green darken-2">
       <%= f.submit "Search" %>
     </div>
   </div>
 <% end %>
 
-<table>
+<table class="bordered responsive-table">
   <thead>
     <tr>
       <th>Image</th>

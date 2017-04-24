@@ -12,11 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require turbolinks
 //= require jquery.raty
 //= require ratyrate
 //= require materialize-form
 //= require materialize-sprockets
 //= require_tree .
 
-$('#textarea1').val('New Text');
-$('#textarea1').trigger('autoresize');
+// $('#textarea1').val('New Text');
+// $('#textarea1').trigger('autoresize');
