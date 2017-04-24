@@ -1,85 +1,77 @@
 <div class="container">
 
-<div class="row">
-  <div class="col s12 m12 l6 blurred-back2">
+  <div class="row">
+    <div class="col s12 m12 l6 blurred-back2">
 
-<p id="notice"><%= notice %></p>
+      <p id="notice"><%= notice %></p>
 
-<%= image_tag @meal.image.url(:large) %>
+      <%= image_tag @meal.image.url(:large) %>
 
-<p>
-  <strong>Healtiness:</strong>
-  <%= rating_for @meal, 'healthy', star: 5 %>
-</p>
-
-
-<p>
-  <strong>Title:</strong>
-  <%= @meal.title %>
-</p>
-
-<p>
-  <strong>Ingredients:</strong>
-  <%= @meal.ingredients %>
-</p>
-
-<p>
-  <strong>Vegetarian:</strong>
-  <%= yes_no(@meal.vegetarian) %>
-</p>
-
-<p>
-  <strong>Vegan:</strong>
-  <%= yes_no(@meal.vegan) %>
-</p>
-
-<p>
-  <strong>Cuisine:</strong>
-  <%= @meal.cuisine %>
-</p>
-
-<p>
-  <strong>Gluten free:</strong>
-  <%= yes_no(@meal.gluten_free) %>
-</p>
-
-<p>
-  <strong>Takeaway:</strong>
-  <%= yes_no(@meal.takeaway) %>
-</p>
-
-<p>
-  <strong>Restaurant:</strong>
-  <%= @meal.restaurant.name %>
-</p>
+      <p>
+        <strong>Healtiness:</strong>
+        <%= rating_for @meal, 'healthy', star: 5 %>
+      </p>
 
 
-<% if @meal.restaurant.user_id == current_user.id || current_user.admin? %>
-  <%= link_to 'Edit', edit_restaurant_meal_path(@meal.restaurant, @meal) %>
-  <%= link_to 'Destroy', restaurant_meal_path(@meal.restaurant, @meal), method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %>
+      <p>
+        <strong>Title:</strong>
+        <%= @meal.title %>
+      </p>
 
-<%= link_to 'Back', restaurant_path(@meal.restaurant) %>
-</div>
-<div class="col s12 m12 l6 comment-section">
-  <%= link_to "Post a comment", new_restaurant_meal_comment_path(@meal.restaurant, @meal) %>
+      <p>
+        <strong>Ingredients:</strong>
+        <%= @meal.ingredients %>
+      </p>
 
-      <% @meal.comments.each do |comment| %>
-      <div class="comments green darken-2">
+      <p>
+        <strong>Vegetarian:</strong>
+        <%= yes_no(@meal.vegetarian) %>
+      </p>
 
-        <p><%= comment.user.first_name %> <%= comment.user.last_name %></p>
+      <p>
+        <strong>Vegan:</strong>
+        <%= yes_no(@meal.vegan) %>
+      </p>
 
-        <p><%= comment.content %></p>
-      </div>
+      <p>
+        <strong>Cuisine:</strong>
+        <%= @meal.cuisine %>
+      </p>
 
+      <p>
+        <strong>Gluten free:</strong>
+        <%= yes_no(@meal.gluten_free) %>
+      </p>
 
+      <p>
+        <strong>Takeaway:</strong>
+        <%= yes_no(@meal.takeaway) %>
+      </p>
 
-          <%= link_to 'Edit', edit_restaurant_meal_comment_path(@meal.restaurant, @meal, comment) %>
-          <%= link_to 'Destroy', restaurant_meal_comment_path(@meal.restaurant, @meal, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <p>
+        <strong>Restaurant:</strong>
+        <%= @meal.restaurant.name %>
+      </p>
+
+      <% if @meal.restaurant.user_id == current_user.id || current_user.admin? %>
+        <%= link_to 'Edit', edit_restaurant_meal_path(@meal.restaurant, @meal) %>
+        <%= link_to 'Destroy', restaurant_meal_path(@meal.restaurant, @meal), method: :delete, data: { confirm: 'Are you sure?' } %>
       <% end %>
 
+      <%= link_to 'Back', restaurant_path(@meal.restaurant) %>
+    </div>
 
-</div>
-</div>
-
+    <div class="col s12 m12 l6 comment-section">
+      <%= link_to "Post a comment", new_restaurant_meal_comment_path(@meal.restaurant, @meal) %>
+      <%= render '/comments/form', comment: @comment %>
+      <% @meal.comments.each do |comment| %>
+      <div class="comments green darken-2">
+        <p><%= comment.user.first_name %> <%= comment.user.last_name %></p>
+        <p><%= comment.content %></p>
+      </div>
+        <%= link_to 'Edit', edit_restaurant_meal_comment_path(@meal.restaurant, @meal, comment) %>
+        <%= link_to 'Destroy', restaurant_meal_comment_path(@meal.restaurant, @meal, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+    </div>
+  </div>
 </div>

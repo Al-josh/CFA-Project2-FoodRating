@@ -13,7 +13,7 @@ class MealsController < ApplicationController
   # GET /meals/1.json
   def show
     @comments = Comment.where(meal_id: params[:meal_id])
-
+    @comment = Comment.new
   end
 
   # GET /meals/new
