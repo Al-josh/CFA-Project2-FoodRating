@@ -36,6 +36,13 @@
 
           <div class="row no-margin">
             <div class="field">
+              <%= f.label :about_me %><br />
+              <%= f.text_area :about_me, autofocus: true %>
+            </div>
+          </div>
+
+          <div class="row no-margin">
+            <div class="field">
               <%= f.label :avatar %><br />
               <%= f.file_field :avatar %>
             </div>

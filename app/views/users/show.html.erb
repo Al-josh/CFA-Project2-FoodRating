@@ -11,7 +11,7 @@
           </div>
         </div>
         <div class="row">
-          <h3><%=@user.first_name.capitalize %> <%= @user.last_name.capitalize %></h3>
+          <h4><%=@user.first_name.capitalize %> <%= @user.last_name.capitalize %></h4>
           <p>Birthday: <%= @user.birthday.strftime("%d/%m/%Y") %></p>
           <% if @user.id != current_user.id %>
             <%= link_to conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: 'post' do%>
@@ -20,6 +20,9 @@
           <% end %>
         </div>
       </div>
+    </div>
+    <div class="col s12 m11 l6 avatar-card center-align green accent-1 offset-l1" style="padding: 20px">
+      <%= @user.about_me %>
     </div>
   </div>
 
