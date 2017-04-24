@@ -43,6 +43,7 @@ gem 'materialize-form'
 gem 'simple_form'
 gem 'geocoder', git: 'git://github.com/alexreisner/geocoder.git'
 gem 'ransack'
+gem 'paperclip-cloudinary'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
