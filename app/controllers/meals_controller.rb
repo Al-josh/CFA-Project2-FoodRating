@@ -35,6 +35,7 @@ class MealsController < ApplicationController
     @meal.restaurant_id = @restaurant.id
 
     respond_to do |format|
+      authorize @meal
       if @meal.save
         format.html { redirect_to restaurant_meal_path(@restaurant, @meal), notice: 'Meal was successfully created.' }
         format.json { render :show, status: :created, location: @meal }
@@ -65,6 +66,7 @@ class MealsController < ApplicationController
   # DELETE /meals/1
   # DELETE /meals/1.json
   def destroy
+    authorize @meal
     @meal.destroy
     respond_to do |format|
       format.html { redirect_to restaurant_meals_url, notice: 'Meal was successfully destroyed.' }

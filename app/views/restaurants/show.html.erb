@@ -83,6 +83,6 @@
       </div>
 
       <br>
-      <%= link_to 'New Meal', new_restaurant_meal_path(@restaurant) %>
+      <%= link_to 'New Meal', new_restaurant_meal_path(@restaurant) if @restaurant.user == current_user || current_user.admin?%>
 
   </div>
