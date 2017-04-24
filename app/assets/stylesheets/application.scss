@@ -19,14 +19,20 @@
 .background-image-signup {
   background-image: url("background_1.jpg");
   background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
+  // background-size: cover;
+  // background-position: right top;
+  background-attachment: fixed;
+  // height: 100vh;
+  // height: 100%;
+  // width: 100%;
 }
 
 .background-image-login {
   background-image: url("background_3.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
+  background-position: right top;
   height: 100vh;
 
 }
