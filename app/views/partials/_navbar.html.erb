@@ -20,7 +20,6 @@
     </ul>
     <ul class="right hide-on-med-and-down">
       <% if user_signed_in? %>
-      <li> <%= link_to "New Post", new_post_path, class:"button", type: "button" %> </li>
       <li> <%= link_to "Restaurants", restaurants_path, class:"button", type: "button" %> </li>
       <% end %>
       <li><a href="/contact">About Us</a></li>
@@ -39,7 +38,6 @@
       <li><%= link_to current_user do %>My Profile<% end %></li>
       <li><%= link_to 'Inbox', conversations_url %></li>
       <li><%= link_to 'User List', user_list_url %></li>
-      <li> <%= link_to "New Post", new_post_path, class:"button", type: "button" %> </li>
       <li> <%= link_to "Restaurants", restaurants_path, class:"button", type: "button" %> </li>
       <li><a href="/contact">Contact</a></li>
       <% end %>

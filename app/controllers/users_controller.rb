@@ -6,5 +6,4 @@ class UsersController < ApplicationController
     @user_restaurants = @user.restaurants
   end
 
-
 end
