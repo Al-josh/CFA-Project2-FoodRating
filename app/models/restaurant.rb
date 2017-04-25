@@ -4,6 +4,10 @@ class Restaurant < ApplicationRecord
   has_attached_file :image, styles: {large: "400x400#", restolarge: "290x290#", medium: "200x200#", thumb: "100x100#"}, :storage => :cloudinary, :path => ":id/:style/:filename"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
+  validates :name, presence: true, length: { minimum: 2 }
+  validates :address, presence: true
+
+
   geocoded_by :address
   after_validation :geocode, if: ->(obj){ obj.address.present? and obj.address_changed? }
 
