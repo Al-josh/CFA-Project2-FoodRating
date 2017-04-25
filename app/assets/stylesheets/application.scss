@@ -158,5 +158,16 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
   margin-top: 5px;
   margin-bottom: 5px;
   background-color: rgba(0,100,0,0.5);
+}
 
+.contact-page {
+  background-image: url("http://res.cloudinary.com/dzctpgu9d/image/upload/v1493085954/tomato-1205699_1280_ue9mda.jpg");
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.image-resto {
+  height: 290px;
+  width: 290px;
 }
