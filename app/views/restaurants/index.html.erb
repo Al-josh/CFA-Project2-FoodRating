@@ -1,66 +1,67 @@
 <div class="food-index">
 
-<div class="container">
+  <div class="container">
+    <div class="blurred-back2">
 
-
-<p id="notice"><%= notice %></p>
-
-
-  <h4 class="center-align">Restaurants</h4>
-
-  <div class="row">
-    <div class="col s6">
-      <%= search_form_for @search do |f| %>
-      <div class="field center-align">
-        <%= f.label :name_cont %>
-        <%= f.text_field :name_cont %>
+      <div class="row">
+        <p id="notice"><%= notice %></p>
       </div>
-    </div>
-    <div class="col s6">
-      <div class="field center-align">
-        <%= f.label :address_cont %>
-        <%= f.text_field :address_cont %>
+
+      <h4 class="center-align">Restaurants</h4>
+
+      <div class="row">
+        <div class="col s6">
+          <%= search_form_for @search do |f| %>
+          <div class="field center-align">
+            <%= f.label :name_cont, class:"search-label" %>
+            <%= f.text_area :name_cont, class:"search-field" %>
+          </div>
+        </div>
+        <div class="col s6">
+          <div class="field center-align">
+            <%= f.label :address_cont, class:"search-label" %>
+            <%= f.text_area :address_cont, class:"search-field" %>
+          </div>
+        </div>
       </div>
+      <div class="row center-align">
+        <div class="actions waves-effect waves-light btn green darken-2">
+          <%= f.submit "Search" %>
+        </div>
+      </div>
+      <% end %>
+
+      <table class="bordered responsive-table">
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Telephone</th>
+            <th>Owner</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @restaurants.each do |restaurant| %>
+            <tr>
+              <td><%= image_tag restaurant.image.url(:thumb) %></td>
+              <td><%= restaurant.name %></td>
+              <td><%= restaurant.address %></td>
+              <td><%= restaurant.telephone %></td>
+              <td><%= restaurant.user.first_name %> <%= restaurant.user.last_name %></td>
+              <td><%= link_to 'Show', restaurant, class:"waves-effect waves-light btn btn-small green darken-2" %></td>
+              <% if restaurant.user == current_user || current_user.admin? %>
+              <td><%= link_to 'Edit', edit_restaurant_path(restaurant), class:"waves-effect waves-light btn btn-small green darken-2"  %> </td>
+              <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' }, class:"waves-effect waves-light btn btn-small green darken-2"  %></td>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <br>
+      <%= link_to 'New Restaurant', new_restaurant_path, class:"waves-effect waves-light btn green darken-2" %>
     </div>
   </div>
-  <div class="row center-align">
-    <div class="actions waves-effect waves-light btn green darken-2">
-      <%= f.submit "Search" %>
-    </div>
-  </div>
-<% end %>
-
-<table class="bordered responsive-table">
-  <thead>
-    <tr>
-      <th>Image</th>
-      <th>Name</th>
-      <th>Address</th>
-      <th>Telephone</th>
-      <th>Owner</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @restaurants.each do |restaurant| %>
-      <tr>
-        <td><%= image_tag restaurant.image.url(:thumb) %></td>
-        <td><%= restaurant.name %></td>
-        <td><%= restaurant.address %></td>
-        <td><%= restaurant.telephone %></td>
-        <td><%= restaurant.user.first_name %> <%= restaurant.user.last_name %></td>
-        <td><%= link_to 'Show', restaurant %></td>
-        <td><%= link_to 'Edit', edit_restaurant_path(restaurant) if restaurant.user == current_user || current_user.admin? %></td>
-        <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } if restaurant.user == current_user || current_user.admin? %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Restaurant', new_restaurant_path %>
-
-</div>
 </div>

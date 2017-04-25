@@ -1,8 +1,12 @@
-<div class="container">
-  <h1>New Restaurant</h1>
+  <div class="food-index">
+    <div class="container">
+      <div class="blurred-back2">
 
-  <%= render 'form', restaurant: @restaurant %>
+        <h3>New Restaurant</h3>
 
-  <%= link_to 'Back', restaurants_path %>
+        <%= render 'form', restaurant: @restaurant %>
 
-</div>
+        <%= link_to 'Back', restaurants_path, class:"waves-effect waves-light btn btn-small green darken-2" %>
+      </div>
+    </div>
+  </div>

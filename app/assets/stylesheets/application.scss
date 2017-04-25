@@ -19,12 +19,8 @@
 .background-image-signup {
   background-image: url("http://res.cloudinary.com/dzctpgu9d/image/upload/v1493015885/background_1_o0tldi.jpg");
   background-repeat: no-repeat;
-  // background-size: cover;
-  // background-position: right top;
-  background-attachment: fixed;
-  // height: 100vh;
-  // height: 100%;
-  // width: 100%;
+  background-size: cover;
+  height: 100vh;
 }
 
 .background-image-login {
@@ -34,7 +30,15 @@
   background-attachment: fixed;
   background-position: right top;
   height: 100vh;
+}
 
+.food-index {
+  background-image: url("http://res.cloudinary.com/dzctpgu9d/image/upload/v1493033662/pexels-photo-349610_zv2dkg.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 130vh;
+  margin-top: -20px;
+  padding-top: 20px;
 }
 
 .blurred-back {
@@ -68,6 +72,7 @@
   margin-top: -35px;
   border-radius: 5%;
 }
+
 
 .home-text {
   font-family: 'Jomhuria', cursive;
@@ -138,4 +143,20 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
 
 .brand-logo {
   font-size: 3rem;
+}
+
+.search-label {
+  color: black;
+}
+
+.search-field {
+  background-color: rgba(0,100,0,0.2);
+}
+
+.comments {
+  padding: 5px 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: rgba(0,100,0,0.5);
+
 }
