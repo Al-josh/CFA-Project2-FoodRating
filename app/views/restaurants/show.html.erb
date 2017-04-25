@@ -3,10 +3,16 @@
       <div class="row row-new">
         <div class="row center-align no-margin">
           <div class="col s12 m12 l6">
-          <%= image_tag @restaurant.image.url(:restolarge) %>
+            <div class="center-align">
+              <%= image_tag @restaurant.image.url(:restolarge) %>
+            </div>
           </div>
           <div class="col s12 m12 l6">
-            <img src="https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=450x350&maptype=roadmap&markers=color:red%7Clabel:%7C<%= @restaurant.latitude %>,<%= @restaurant.longitude %>&key=<%= ENV['GOOGLE_API'] %>">
+            <div class="center-align">
+
+            <img src="https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=290x290&maptype=roadmap&markers=color:red%7Clabel:%7C<%= @restaurant.latitude %>,<%= @restaurant.longitude %>&key=<%= ENV['GOOGLE_API'] %>">
+          </div>
+
           </div>
         </div>
 

@@ -1,53 +1,56 @@
+<div class="contact-page">
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m12 l6 blurred-back">
 
-  <div class="row">
+        <h4>About Us</h4>
 
-    <div class="col s12 m12 l6">
+        <p><strong>food</strong>
+          <br>(usually uncountable, plural foods) n
+          <br>
+          <li>Any substance that can be consumed by living organisms, especially by eating, in order to sustain life.</li></p>
+        <p><strong>κρᾰ́τος (krátos)</strong> n <br>
+          <li>might, strength</li>
+          <li>act of strength, act of valour</li>
+          <li>(in the plural) acts of violence</li>
+          <li>dominion, power</li>
+        </p>
 
-      <% if flash[:notice] %>
-      <div class="notice"><%= flash[:notice] %></div>
-      <% elsif flash[:warning] %>
-      <div class="alert alert-danger"><%= flash[:warning] %></div>
-      <% else %>
-      <% end %>
-
-      <h4>About Us</h4>
-
-      <p>food (usually uncountable, plural foods) n <br>
-        <li>Any substance that can be consumed by living organisms, especially by eating, in order to sustain life.</li></p>
-      <p>κρᾰ́τος • (krátos) n <br>
-        <li>might, strength</li>
-        <li>act of strength, act of valour</li>
-        <li>(in the plural) acts of violence</li>
-        <li>dominion, power</li>
-      </p>
-
-      <p>Foodocracy is a system where users can see their favourite restaurants and rate the healthiness of their meals</p>
-      <p>This is the best platform to promote healthy living small local communities who are using local products</p>
-    </div>
-
-    <div class="col s12 m12 l6">
-
-      <%= simple_form_for :contact do |f| %>
-
-      <div class="field col m6">
-        <label for="email">Email</label>
-        <%= f.input_field :email %>
+        <p>Foodocracy is a system where users can see their favourite restaurants and rate the healthiness of their meals</p>
+        <p>This is the best platform to promote healthy living small local communities who are using local products</p>
       </div>
 
-      <div class="field col m6">
-        <label for="name">Name</label>
-        <%= f.input_field :name %>
+      <div class="col s12 m12 l6 blurred-back">
+
+        <% if flash[:notice] %>
+        <div class="notice"><%= flash[:notice] %></div>
+        <% elsif flash[:warning] %>
+        <div class="alert alert-danger"><%= flash[:warning] %></div>
+        <% else %>
+        <% end %>
+
+        <%= simple_form_for :contact do |f| %>
+
+        <div class="field col m6">
+          <label for="email", style="color:black;">Email</label>
+          <%= f.input_field :email, class:"search-field" %>
+        </div>
+
+        <div class="field col m6">
+          <label for="name", style="color:black;">Name</label>
+          <%= f.input_field :name, class:"search-field" %>
+        </div>
+
+        <div class="field col m12">
+          <label for="text", style="color:black;">Text</label>
+          <%= f.input_field :message, :as => :text, class:"search-field" %>
+        </div>
+
+        <div class="center-align">
+          <%= f.button :submit, "Send", class: "waves-effect waves-light btn " %>
+          <% end %>
+        </div>
       </div>
-
-
-      <div class="field col m12">
-        <label for="text">Text</label>
-        <%= f.input_field :message, :as => :text %>
-      </div>
-
-
-      <%= f.button :submit, "Send", class: "waves-effect waves-light btn" %>
-      <% end %>
     </div>
-
-    </div>
+  </div>
+</div>
