@@ -1,9 +1,8 @@
 <div class="container">
-
-<h1>Editing Meal</h1>
-
-<%= render 'form', meal: @meal %>
-
-<%= link_to 'Show', restaurant_meal_path(@meal.restaurant, @meal) %> |
-<%= link_to 'Back', restaurant_meal_path(@meal.restaurant, @meal) %>
+  <div class="blurred-back3">
+    <h4>Editing Meal</h4>
+    <%= render 'form', meal: @meal %>
+    <%= link_to 'Show', restaurant_meal_path(@meal.restaurant, @meal) %> |
+    <%= link_to 'Back', restaurant_meal_path(@meal.restaurant, @meal) %>
+  </div>
 </div>

@@ -29,26 +29,28 @@
         <% else %>
         <% end %>
 
-        <%= simple_form_for :contact do |f| %>
+        <div class="row">
+          <%= simple_form_for :contact do |f| %>
+          <div class="field col m6">
+            <label for="email", style="color:black;">Email</label>
+            <%= f.input_field :email, class:"search-field" %>
+          </div>
 
-        <div class="field col m6">
-          <label for="email", style="color:black;">Email</label>
-          <%= f.input_field :email, class:"search-field" %>
+          <div class="field col m6">
+            <label for="name", style="color:black;">Name</label>
+            <%= f.input_field :name, class:"search-field" %>
+          </div>
+
+          <div class="field col m12">
+            <label for="text", style="color:black;">Text</label>
+            <%= f.input_field :message, :as => :text, class:"search-field" %>
+          </div>
         </div>
-
-        <div class="field col m6">
-          <label for="name", style="color:black;">Name</label>
-          <%= f.input_field :name, class:"search-field" %>
-        </div>
-
-        <div class="field col m12">
-          <label for="text", style="color:black;">Text</label>
-          <%= f.input_field :message, :as => :text, class:"search-field" %>
-        </div>
-
-        <div class="center-align">
-          <%= f.button :submit, "Send", class: "waves-effect waves-light btn " %>
-          <% end %>
+        <div class="row">
+          <div class="center-align">
+            <%= f.button :submit, "Send", class: "waves-effect waves-light btn green darken-2" %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
