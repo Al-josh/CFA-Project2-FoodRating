@@ -71,13 +71,15 @@ Consumers can make their choice based on the healthiness rating.
 
 ### Design Journey
 
-![N|Solid](http://res.cloudinary.com/dzctpgu9d/image/upload/v1493130756/Screen_Shot_2017-04-26_at_12.31.59_AM_srro7t.png)
+#### User Stories
 
-![N|Solid](http://res.cloudinary.com/dzctpgu9d/image/upload/v1493131460/20170426_003628_kg71gz.jpg)
+![Solid](http://res.cloudinary.com/dzctpgu9d/image/upload/v1493130756/Screen_Shot_2017-04-26_at_12.31.59_AM_srro7t.png)
 
-![N|Solid](http://res.cloudinary.com/dzctpgu9d/image/upload/v1493131417/20170426_003640_qisptj.jpg)
+![Solid](http://res.cloudinary.com/dzctpgu9d/image/upload/v1493131460/20170426_003628_kg71gz.jpg)
 
-![N|Solid](http://res.cloudinary.com/dzctpgu9d/image/upload/v1493132065/Screen_Shot_2017-04-26_at_12.53.34_AM_bq9yca.png)
+![Solid](http://res.cloudinary.com/dzctpgu9d/image/upload/v1493131417/20170426_003640_qisptj.jpg)
+
+![Solid](http://res.cloudinary.com/dzctpgu9d/image/upload/v1493132065/Screen_Shot_2017-04-26_at_12.53.34_AM_bq9yca.png)
 
 ### Future of the project
 
