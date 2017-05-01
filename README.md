@@ -6,6 +6,7 @@ Overview
 ========
 
 Foodocracy is a platform where restaurant which promotes healthy way of eating. Restaurant owners/managers can register their restaurant and upload their meals. The users will be rating the healthiness of the meal and discuss it in the comments.
+The deployed webpage can be found here: https://food-foodocracy.herokuapp.com/
 
 * [Project brief](#project-brief)
 * [Problem](#problem)
@@ -100,9 +101,6 @@ Admin
 Sketching
 ========
 
-
-![Solid](http://res.cloudinary.com/dzctpgu9d/image/upload/v1493131460/20170426_003628_kg71gz.jpg)
-
 ![Solid](http://res.cloudinary.com/dzctpgu9d/image/upload/v1493131417/20170426_003640_qisptj.jpg)
 
 ![Solid](http://res.cloudinary.com/dzctpgu9d/image/upload/v1493132065/Screen_Shot_2017-04-26_at_12.53.34_AM_bq9yca.png)
@@ -135,6 +133,12 @@ Gems used:
 |gem 'paperclip-cloudinary'| https://github.com/GoGoCarl/paperclip-cloudinary
 |gem 'rspec-rails' | https://github.com/rspec/rspec-rails
 
+Restaurants List
+(http://res.cloudinary.com/dzctpgu9d/image/upload/c_scale,w_817/v1493622577/Screen_Shot_2017-05-01_at_5.08.15_PM_xn6q6g.png)
+Restaurant Page
+(http://res.cloudinary.com/dzctpgu9d/image/upload/v1493622558/Screen_Shot_2017-05-01_at_5.08.39_PM_kjky0q.png)
+Profile Page
+(http://res.cloudinary.com/dzctpgu9d/image/upload/v1493622475/Screen_Shot_2017-05-01_at_5.07.13_PM_saagpy.png)
 
 Future of the project
 ========
