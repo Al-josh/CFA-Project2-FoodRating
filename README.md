@@ -4,7 +4,7 @@
 
 Foodocracy is a platform where restaurant which promotes healthy way of eating. Restaurant owners/managers can register their restaurant and upload their meals. The users will be rating the healthiness of the meal and discuss it in the comments.
 
-### Premise
+### Project Brief
 
 Foodocracy is the second major project that I had to complete during the Fast Track course at Coder Factory Academy.
 
@@ -52,6 +52,22 @@ Gems used:
 |gem 'ransack'| https://github.com/activerecord-hackery/ransack
 |gem 'paperclip-cloudinary'| https://github.com/GoGoCarl/paperclip-cloudinary
 |gem 'rspec-rails' | https://github.com/rspec/rspec-rails
+
+### Problem
+
+#### Introduction
+A health risk factor is any attribute, characteristic or exposure of an individual that increases the likelihood of developing a disease or injury.
+Health risk factors can be divided in behavioural and biomedical. Behavioural risk are related directly to our habits and we are able to adjust it to our needs (smoking, alcohol consumption...). Biomedical risk factors are bodily states that are often influenced by behavioural risk factors (obesity, high blood pressure).
+
+#### Problem Description
+Almost 2 out of 3 Australians are overweight or obese. People are surrounded by lots of varieties of easily accessible fast-food chains, unhealthy meals advertised as healthy food and they may be making the wrong decisions and still being convinced they made the right choice.
+In the last few years lots of restaurants are promoting healthy food but they are doing it in a non-transparent way: salad is healthy, but salad with processed salad dressing is not healthy; if we want to eat a healthy meal, we will order a salad and not pay attention to the dressing.
+
+#### Problem Solution
+Foodocracy. Foodocracy is a platform where restaurant which promotes healthy way of eating. Restaurant owners/managers can register their restaurant and upload their meals. The users will be rating the healthiness of the meal and discuss it in the comments.
+This “system” will promote healthy healthy living and small local communities who are using local and sustainable products.
+Foodocracy is aiming to encourage users to choose healthier options when ordering food and it is also encouraging restaurants to adjust their food (use healthier oil, provide salads instead of fried potatoes as side dishes).
+Consumers can make their choice based on the healthiness rating.
 
 ### Design Journey
 
